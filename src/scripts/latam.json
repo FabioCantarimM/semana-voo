@@ -1,0 +1,49 @@
+{
+    "link": "https://www.latamairlines.com/br/pt",
+    "script": {
+        "before": {},
+        "main": {
+            "step-1": {
+                "action": "goto",
+                "att": "https://www.latamairlines.com/br/pt/oferta-voos?origin={{origem}}&inbound={{volta}}T12%3A00%3A00.000Z&outbound={{ida}}T12%3A00%3A00.000Z&destination={{destino}}&adt=1&chd=0&inf=0&trip=RT&cabin=Economy&redemption=false&sort=RECOMMENDED"
+            },
+            "step-2": {
+                "action": "click_button",
+                "att": {
+                    "element": "//button[@ id='cookies-politics-button']",
+                    "value": ""
+                }
+            },
+            "step-3": {
+                "action": "wait",
+                "att": 5
+            }
+        },
+        "after": {}
+    },
+    "tag": {
+        "result_group": {
+            "tag": "//ol[@aria-label='Voos disponíveis.']",
+            "items": {
+                "tag": ".//li[@class='bodyFlightsstyle__ListItemAvailableFlights-sc__sc-1g00tx2-5 ciAabv']",
+                "elements": {
+                    "decolagem": {
+                        "tag": ".//div[@class='flightInfostyle__ContainerFlightInfo-sc__sc-169zitd-3 fybJPx flight-information']"
+                    },
+                    "aterrissagem": {
+                        "tag": ".//div[@class='flightInfostyle__ContainerFlightInfo-sc__sc-169zitd-3 fybJPx flight-information']"
+                    },
+                    "duracao": {
+                        "tag": ".//span[@class='sc-aXZVg iBheDR latam-typography latam-typography--paragraph-medium sc-gEvEer fteAEG']"
+                    },
+                    "preço": {
+                        "tag": ".//span[@class='sc-aXZVg kFMrxo latam-typography latam-typography--heading-06 sc-gEvEer displayCurrencystyle__CurrencyAmount-sc__sc-hel5vp-2 fteAEG koxMWe']"
+                    },
+                    "escalas": {
+                        "tag": ".//a[@class='sc-jlZhew eFWdsA sc-cwHptR dtpzom']"
+                    }
+                }
+            }
+        }
+    }
+}
